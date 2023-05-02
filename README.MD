@@ -10,7 +10,10 @@ docker buildx build --platform linux/amd64,linux/arm64 -t jscat/whisper:latest -
 
 # run
 ```bash
-docker run --rm -it --gpus all -v ~/.cache/whisper:/root/.cache/whisper -v $(pwd):/app -w /app jscat/whisper --help
+docker run --rm -it --gpus all \
+    -v ~/.cache/whisper:/root/.cache/whisper \
+    -v $(pwd):/app -w /app \
+    jscat/whisper audio.wav --language Chinese
 ```
 
 # install nvidia driver
@@ -43,7 +46,7 @@ sudo service docker restart
 
 # test docker with gpu
 ```bash
-sudo docker run --rm --gpus all nvidia/cuda:12.1.1-base-ubuntu20.04 nvidia-smi
+docker run --rm --gpus all nvidia/cuda:12.1.1-base-ubuntu20.04 nvidia-smi
 ```
 
 # document
