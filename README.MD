@@ -13,7 +13,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t jscat/whisper:latest -
 docker run --rm -it --gpus all \
     -v ~/.cache/whisper:/root/.cache/whisper \
     -v $(pwd):/app -w /app \
-    jscat/whisper audio.wav --language Chinese
+    jscat/whisper audio.wav --language Chinese --model large-v2
 ```
 
 # install nvidia driver
